@@ -1,0 +1,10 @@
+:root{
+    --body-bg-color: #285E61;
+    --main-bg-color: #FFFFFF;
+    --button-bg-color: #319795;
+    --favorite-border-color: #F6E05E;
+    --main-text-color: #000000;
+    --active-button-text-color: #FFFFFF;
+    --placeholder-text-color: #A0AEC0;
+    --unactive-button-text-color: #1A202C;
+}

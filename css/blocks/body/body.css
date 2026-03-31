@@ -1,0 +1,11 @@
+.body{
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    letter-spacing: 0;
+    background-color: var(--body-bg-color);
+    color: var(--main-text-color);
+    height: 100vh;
+}

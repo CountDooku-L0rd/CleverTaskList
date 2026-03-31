@@ -1,0 +1,6 @@
+.main{
+    width: 800px;
+    height: 761px;
+    border-radius: 8px;
+    background-color: var(--main-bg-color);
+}

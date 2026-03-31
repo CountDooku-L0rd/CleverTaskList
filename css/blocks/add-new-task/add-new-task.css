@@ -1,0 +1,6 @@
+.add-new-task {
+    width: 728px;
+    display: flex;
+    gap: 36px;
+    margin-bottom: 36px;
+}

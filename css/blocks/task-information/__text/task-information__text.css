@@ -1,0 +1,8 @@
+.task-information__text{
+    color: var(--main-text-color);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+    text-align: center;
+    margin: 0;
+}

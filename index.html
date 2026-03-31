@@ -3,12 +3,100 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" href="./assets/img/favicon.png" type="image/png">
     <script src="./scripts/index.js" type="module"></script>
     <title>Умный список задач</title>
   </head>
   <body class="body">
-    <main class="main">
-
-    </main>
+    <div class="body__container">
+      <header class="header">
+        <div class="header__title-container">
+          <div class="header__logo"></div>
+          <h1 class="header__title">Умный список дел</h1>
+        </div>
+        <p class="header__subtitle">Организуйте свои задачи эффективно</p>
+      </header>
+      <main class="main">
+        <div class="add-new-task">
+          <label>
+            <input class="input input__placeholder add-new-task__input" type="text" placeholder="Введите новую задачу">
+          </label>
+          <button class="add-new-task__button">
+            <div class="add-new-task__button-img"></div>
+            <span class="add-new-task__button-text">Добавить</span>
+          </button>
+        </div>
+        <label class="task-search input">
+          <div class="task-search__img-container">
+            <div class="task-search__img"></div>
+          </div>
+          <input class="input__placeholder task-search__input" type="text" placeholder="Поиск задач">
+        </label>
+        <div class="filter-buttons">
+          <button class="filter-buttons__button filter-buttons__button-active">Все задачи</button>
+          <button class="filter-buttons__button">Активные</button>
+          <button class="filter-buttons__button">Выполненные</button>
+          <button class="filter-buttons__button">Важные</button>
+        </div>
+        <div class="task-information">
+          <p class="task-information__text">Всего задач: <span class="task-information__total">3</span></p>
+          <p class="task-information__text">Активных: <span class="task-information__active">1</span></p>
+          <p class="task-information__text">Выполненных: <span class="task-information__completed">2</span></p>
+        </div>
+        <div class="task-list">
+          <ul class="task-list__items">
+            <li class="task-list__item">
+              <label class="task-list__label">
+                <input class="task-list__checkbox" type="checkbox" checked>
+                <span class="custom-checkbox"></span>
+                <span class="task-list__title task-list__title-completed">Изучите основы JS</span>
+              </label>
+              <div class="task-list__buttons">
+                <button class="task-list__important-button"></button>
+                <button class="task-list__delete-button"></button>
+              </div>
+            </li>
+            <li class="task-list__item task-list__important">
+              <label class="task-list__label">
+                <input class="task-list__checkbox" type="checkbox">
+                <span class="custom-checkbox"></span>
+                <span class="task-list__title">Создать свой первый проект</span>
+              </label>
+              <div class="task-list__buttons">
+                <button class="task-list__important-button task-list__important-button-active"></button>
+                <button class="task-list__delete-button"></button>
+              </div>
+            </li>
+            <li class="task-list__item">
+              <label class="task-list__label">
+                <input class="task-list__checkbox" type="checkbox" checked>
+                <span class="custom-checkbox"></span>
+                <span class="task-list__title task-list__title-completed">Изучить основы HTML</span>
+              </label>
+              <div class="task-list__buttons">
+                <button class="task-list__important-button"></button>
+                <button class="task-list__delete-button"></button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <template class="task-item-template">
+          <li class="task-list__item">
+            <label class="task-list__label">
+              <input class="task-list__checkbox" type="checkbox">
+              <span class="custom-checkbox"></span>
+              <span class="task-list__title"></span>
+            </label>
+            <div class="task-list__buttons">
+              <button class="task-list__important-button"></button>
+              <button class="task-list__delete-button"></button>
+            </div>
+          </li>
+        </template>
+      </main>
+      <footer class="footer">
+        <p class="footer__text">Задачи сохраняются автоматически в вашем браузере</p>
+      </footer>
+    </div>
   </body>
 </html>

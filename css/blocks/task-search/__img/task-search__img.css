@@ -1,0 +1,7 @@
+.task-search__img{
+    width: 18px;
+    height: 18px;
+    background-image: url('../../../../assets/svg/search.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}

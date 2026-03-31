@@ -1,0 +1,3 @@
+.task-list__important-button-active{
+    background-image: url('../../../../assets/svg/unImportant.svg');
+}

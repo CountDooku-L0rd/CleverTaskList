@@ -1,0 +1,10 @@
+.add-new-task__button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 160px;
+    height: 48px;
+    background-color: var(--button-bg-color);
+    border-radius: 6px;
+}

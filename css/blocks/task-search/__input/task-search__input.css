@@ -1,0 +1,8 @@
+.task-search__input{
+    border: none;
+    width: 670px;
+}
+
+.task-search__input:focus{
+    outline: none;
+}

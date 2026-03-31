@@ -1,0 +1,8 @@
+.task-list__items{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    list-style: none;
+    padding: 0 30px 0 30px;
+    margin: 0;
+}

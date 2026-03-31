@@ -1,0 +1,10 @@
+.task-list__delete-button {
+    border: none;
+    background-color: var(--unactive-button-bg-color);
+    width: 16px;
+    height: 18px;
+    background-image: url('../../../../assets/svg/delete.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}

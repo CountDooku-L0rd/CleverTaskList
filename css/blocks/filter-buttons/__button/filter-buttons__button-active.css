@@ -1,0 +1,4 @@
+.filter-buttons__button-active{
+    color: var(--active-button-text-color);
+    background-color: var(--button-bg-color);
+}

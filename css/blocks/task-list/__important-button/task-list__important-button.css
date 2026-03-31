@@ -1,0 +1,10 @@
+.task-list__important-button {
+    border: none;
+    background-color: var(--unactive-button-bg-color);
+    width: 16px;
+    height: 16px;
+    background-image: url('../../../../assets/svg/favorite.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}

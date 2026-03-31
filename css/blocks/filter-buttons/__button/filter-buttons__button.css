@@ -1,0 +1,13 @@
+.filter-buttons__button{
+    padding: 0 16px 0 16px;
+    height: 40px;
+    border-radius: 9999px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    color: var(--unactive-button-text-color);
+    border: none;
+    background-color: var(--unactive-button-bg-color);
+    cursor: pointer;
+}

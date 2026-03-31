@@ -1,0 +1,7 @@
+.task-search__img-container {
+    width: 48px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

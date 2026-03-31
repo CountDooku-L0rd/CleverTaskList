@@ -1,0 +1,6 @@
+.task-information {
+    width: 710px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}

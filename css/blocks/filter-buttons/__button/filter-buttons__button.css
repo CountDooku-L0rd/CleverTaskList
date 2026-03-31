@@ -10,4 +10,5 @@
     border: none;
     background-color: var(--unactive-button-bg-color);
     cursor: pointer;
+    outline: none;
 }

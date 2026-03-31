@@ -19,11 +19,11 @@
       <main class="main">
         <div class="add-new-task">
           <label>
-            <input class="input input__placeholder add-new-task__input" type="text" placeholder="Введите новую задачу">
+            <input class="input input__placeholder add-new-task__input" type="text" placeholder="Введите новую задачу" id="add-new-task-input">
           </label>
           <button class="add-new-task__button">
             <div class="add-new-task__button-img"></div>
-            <span class="add-new-task__button-text">Добавить</span>
+            <span class="add-new-task__button-text" id="add-new-task-button">Добавить</span>
           </button>
         </div>
         <label class="task-search input">
@@ -44,7 +44,7 @@
           <p class="task-information__text">Выполненных: <span class="task-information__completed">2</span></p>
         </div>
         <div class="task-list">
-          <ul class="task-list__items">
+          <ul class="task-list__items" id="task-list-items">
             <li class="task-list__item">
               <label class="task-list__label">
                 <input class="task-list__checkbox" type="checkbox" checked>
@@ -80,7 +80,7 @@
             </li>
           </ul>
         </div>
-        <template class="task-item-template">
+        <template class="task-item-template" id="task-item-template">
           <li class="task-list__item">
             <label class="task-list__label">
               <input class="task-list__checkbox" type="checkbox">

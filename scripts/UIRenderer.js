@@ -1,25 +1,55 @@
 import { getCurrentTab } from './utils.js'
 
-export class UIRender {
+export class UIRenderer {
     #allTaskCount = document.querySelector('.task-information__total')
     #activeTaskCount = document.querySelector('.task-information__active')
     #completedTaskCount = document.querySelector('.task-information__completed')
     #taskListItems = document.getElementById('task-list-items')
     #searchInput = document.querySelector('.task-search__input')
     #taskItemTemplate = document.getElementById('task-item-template')
+    #filterButtons = document.querySelectorAll('.filter-buttons__button')
+    #addNewTaskButton = document.getElementById('add-new-task-button')
+    #addNewTaskInput = document.getElementById('add-new-task-input')
     #taskList
 
     constructor(taskList) {
         this.#taskList = taskList
+        this.setupEventListeners()
     }
 
-    updateAndRender() {
-        const currentTabButton = document.querySelector('.filter-buttons__button-active')
-        const currentTab = getCurrentTab(currentTabButton.textContent.trim())
+    setupEventListeners() {
+        this.#searchInput.addEventListener('input', () => {
+            this.render()
+        })
+
+        this.#filterButtons.forEach((filterButton) => {
+            filterButton.addEventListener('click', (event) => {
+                this.#filterButtons.forEach((button) => {
+                    button.classList.remove('filter-buttons__button-active')
+                })
+                event.target.classList.add('filter-buttons__button-active')
+                this.render()
+            })
+        })
+
+        this.#addNewTaskButton.addEventListener('click', () => {
+            if (this.#addNewTaskInput.value) {
+                this.#taskList.addTask(this.#addNewTaskInput.value)
+                this.#addNewTaskInput.value = ''
+                this.render()
+            } else {
+                alert('Вы не ввели текст задачи')
+            }
+        })
+    }
+
+    render() {
+        const currentTab = document
+            .querySelector('.filter-buttons__button-active')
+            .textContent.trim()
+        const tab = getCurrentTab(currentTab)
         const currentSearchInput = this.#searchInput.value.trim()
-        this.#renderTaskList(
-            this.#taskList.calculateCurrentList(currentTab, currentSearchInput)
-        )
+        this.#renderTaskList(this.#taskList.calculateCurrentList(tab, currentSearchInput))
     }
 
     #renderTaskList(currentList) {
@@ -53,17 +83,17 @@ export class UIRender {
 
         checkbox.addEventListener('change', () => {
             this.#taskList.toggleCompleted(task.id)
-            this.updateAndRender()
+            this.render()
         })
 
         importantButton.addEventListener('click', () => {
             this.#taskList.toggleImportant(task.id)
-            this.updateAndRender()
+            this.render()
         })
 
         deleteButton.addEventListener('click', () => {
             this.#taskList.deleteTask(task.id)
-            this.updateAndRender()
+            this.render()
         })
 
         return taskItem

@@ -1,9 +1,14 @@
+import { ETabs } from './utils.js'
 export class TaskList {
     #id = 0
     #list = []
     #currentList = []
 
     constructor() {
+        this.getDataFromLocalStorage()
+    }
+
+    getDataFromLocalStorage() {
         const saved = localStorage.getItem('list')
         if (saved) {
             const data = JSON.parse(saved)
@@ -29,7 +34,7 @@ export class TaskList {
     toggleImportant(id) {
         const index = this.#list.findIndex((item) => item.id === id)
         if (index === -1) {
-            alert('Несуществующий id')
+            console.log('Несуществующий id')
             return
         }
         this.#list[index].isImportant = !this.#list[index].isImportant
@@ -38,20 +43,20 @@ export class TaskList {
     toggleCompleted(id) {
         const index = this.#list.findIndex((item) => item.id === id)
         if (index === -1) {
-            alert('Несуществующий id')
+            console.log('Несуществующий id')
             return
         }
         this.#list[index].isCompleted = !this.#list[index].isCompleted
         this.#saveToLocalStorage()
     }
     calculateCurrentList(currentTab, searchString) {
-        if (currentTab === 'ALL_TASKS') {
+        if (currentTab === ETabs.ALL_TASKS) {
             this.#currentList = this.#list
-        } else if (currentTab === 'ACTIVE') {
+        } else if (currentTab === ETabs.ACTIVE) {
             this.#currentList = this.#list.filter((item) => !item.isCompleted)
-        } else if (currentTab === 'COMPLETED') {
+        } else if (currentTab === ETabs.COMPLETED) {
             this.#currentList = this.#list.filter((item) => item.isCompleted)
-        } else if (currentTab === 'IMPORTANT') {
+        } else if (currentTab === ETabs.IMPORTANT) {
             this.#currentList = this.#list.filter((item) => item.isImportant)
         }
         if (searchString) {

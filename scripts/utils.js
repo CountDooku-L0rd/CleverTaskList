@@ -1,14 +1,15 @@
+export const ETabs = Object.freeze({
+    ALL_TASKS: 'ALL_TASKS',
+    COMPLETED: 'COMPLETED',
+    ACTIVE: 'ACTIVE',
+    IMPORTANT: 'IMPORTANT',
+})
+
 export function getCurrentTab(currentTab) {
-    if (currentTab === 'Все задачи') {
-        return 'ALL_TASKS'
-    }
-    if (currentTab === 'Активные') {
-        return 'ACTIVE'
-    }
-    if (currentTab === 'Выполненные') {
-        return 'COMPLETED'
-    }
-    if (currentTab === 'Важные') {
-        return 'IMPORTANT'
-    }
+    return {
+        ['Все задачи']: ETabs.ALL_TASKS,
+        ['Выполненные']: ETabs.COMPLETED,
+        ['Активные']: ETabs.ACTIVE,
+        ['Важные']: ETabs.IMPORTANT,
+    }[currentTab]
 }

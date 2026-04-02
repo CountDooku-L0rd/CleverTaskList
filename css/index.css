@@ -27,7 +27,7 @@
 @import './blocks/task-information/__text/task-information__text.css';
 @import './blocks/task-list/__items/task-list__items.css';
 @import './blocks/task-list/__item/task-list__item.css';
-@import './blocks/task-list/__important/task-list__important.css';
+@import 'blocks/task-list/__active/task-list__active.css';
 @import './blocks/task-list/__label/task-list__label.css';
 @import './blocks/task-list/__checkbox/task-list__checkbox.css';
 @import './blocks/custom-checkbox/custom-checkbox.css';

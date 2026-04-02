@@ -2,4 +2,6 @@
     width: 800px;
     border-radius: 8px;
     background-color: var(--main-bg-color);
+    margin-bottom: 40px;
+    margin-top: 40px;
 }

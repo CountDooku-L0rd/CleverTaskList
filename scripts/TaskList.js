@@ -1,14 +1,15 @@
-import { ETabs } from './utils.js'
+import { ERROR_NOT_FOUND_TASK_ID, ETabs } from './constants.js'
+
 export class TaskList {
     #id = 0
     #list = []
     #currentList = []
 
     constructor() {
-        this.getDataFromLocalStorage()
+        this.#getDataFromLocalStorage()
     }
 
-    getDataFromLocalStorage() {
+    #getDataFromLocalStorage() {
         const saved = localStorage.getItem('list')
         if (saved) {
             const data = JSON.parse(saved)
@@ -34,7 +35,7 @@ export class TaskList {
     toggleImportant(id) {
         const index = this.#list.findIndex((item) => item.id === id)
         if (index === -1) {
-            console.log('Несуществующий id')
+            console.error(ERROR_NOT_FOUND_TASK_ID)
             return
         }
         this.#list[index].isImportant = !this.#list[index].isImportant
@@ -43,7 +44,7 @@ export class TaskList {
     toggleCompleted(id) {
         const index = this.#list.findIndex((item) => item.id === id)
         if (index === -1) {
-            console.log('Несуществующий id')
+            console.error(ERROR_NOT_FOUND_TASK_ID)
             return
         }
         this.#list[index].isCompleted = !this.#list[index].isCompleted

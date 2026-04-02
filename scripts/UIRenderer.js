@@ -1,4 +1,5 @@
-import { getCurrentTab } from './utils.js'
+import { ALERT_EMPTY_STRING, ETabs } from './constants.js'
+import { TaskList } from './TaskList.js'
 
 export class UIRenderer {
     #allTaskCount = document.querySelector('.task-information__total')
@@ -10,14 +11,18 @@ export class UIRenderer {
     #filterButtons = document.querySelectorAll('.filter-buttons__button')
     #addNewTaskButton = document.getElementById('add-new-task-button')
     #addNewTaskInput = document.getElementById('add-new-task-input')
+    #currentTab = ETabs.ALL_TASKS
     #taskList
-
+    /**
+     * Класс для рендера списка задач
+     * @param {TaskList} taskList
+     */
     constructor(taskList) {
         this.#taskList = taskList
-        this.setupEventListeners()
+        this.#setupEventListeners()
     }
 
-    setupEventListeners() {
+    #setupEventListeners() {
         this.#searchInput.addEventListener('input', () => {
             this.render()
         })
@@ -28,6 +33,12 @@ export class UIRenderer {
                     button.classList.remove('filter-buttons__button-active')
                 })
                 event.target.classList.add('filter-buttons__button-active')
+                this.#currentTab = {
+                    ['Все задачи']: ETabs.ALL_TASKS,
+                    ['Выполненные']: ETabs.COMPLETED,
+                    ['Активные']: ETabs.ACTIVE,
+                    ['Важные']: ETabs.IMPORTANT,
+                }[event.target.textContent.trim()]
                 this.render()
             })
         })
@@ -38,21 +49,17 @@ export class UIRenderer {
                 this.#addNewTaskInput.value = ''
                 this.render()
             } else {
-                alert('Вы не ввели текст задачи')
+                alert(ALERT_EMPTY_STRING)
             }
         })
     }
 
     render() {
-        const currentTab = document
-            .querySelector('.filter-buttons__button-active')
-            .textContent.trim()
-        const tab = getCurrentTab(currentTab)
-        const currentSearchInput = this.#searchInput.value.trim()
-        this.#renderTaskList(this.#taskList.calculateCurrentList(tab, currentSearchInput))
-    }
-
-    #renderTaskList(currentList) {
+        const currentSearchString = this.#searchInput.value.trim()
+        const currentList = this.#taskList.calculateCurrentList(
+            this.#currentTab,
+            currentSearchString
+        )
         this.#taskListItems.innerHTML = ''
         currentList.forEach((task) => {
             this.#taskListItems.appendChild(this.#createTaskElement(task))

@@ -28,11 +28,11 @@ export class TaskList {
         this.#list.push(task)
         this.#saveToLocalStorage()
     }
-    deleteTask(id) {
+    deleteTaskById(id) {
         this.#list = this.#list.filter((item) => item.id !== id)
         this.#saveToLocalStorage()
     }
-    toggleImportant(id) {
+    toggleIsImportantById(id) {
         const index = this.#list.findIndex((item) => item.id === id)
         if (index === -1) {
             console.error(ERROR_NOT_FOUND_TASK_ID)
@@ -41,7 +41,7 @@ export class TaskList {
         this.#list[index].isImportant = !this.#list[index].isImportant
         this.#saveToLocalStorage()
     }
-    toggleCompleted(id) {
+    toggleIsCompletedById(id) {
         const index = this.#list.findIndex((item) => item.id === id)
         if (index === -1) {
             console.error(ERROR_NOT_FOUND_TASK_ID)

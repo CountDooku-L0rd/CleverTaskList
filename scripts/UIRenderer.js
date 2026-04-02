@@ -89,17 +89,17 @@ export class UIRenderer {
         }
 
         checkbox.addEventListener('change', () => {
-            this.#taskList.toggleCompleted(task.id)
+            this.#taskList.toggleIsCompletedById(task.id)
             this.render()
         })
 
         importantButton.addEventListener('click', () => {
-            this.#taskList.toggleImportant(task.id)
+            this.#taskList.toggleIsImportantById(task.id)
             this.render()
         })
 
         deleteButton.addEventListener('click', () => {
-            this.#taskList.deleteTask(task.id)
+            this.#taskList.deleteTaskById(task.id)
             this.render()
         })
 
